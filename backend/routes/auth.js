@@ -1,0 +1,68 @@
+const express = require('express');
+const router = express.Router();
+const User = require('../models/user');
+const sendToken = require('../utils/jwtToken');
+
+
+const {
+    registerUser,
+    loginUser,
+    forgotPassword,
+    resetPassword,
+    getUserProfile,
+    updatePassword,
+    updateProfile,
+    logout,
+    allUsers,
+    getUserDetails,
+    updateUser,
+    deleteUser
+
+} = require('../controllers/authController');
+
+// const processFile = require('../middlewares/multer');
+// const multer = require('multer');
+// const path = require('path');
+
+
+// global.__basedir = __dirname;
+// const appDir = path.dirname(require.main.filename);
+// const storage = multer.diskStorage({
+//     destination(req, file, cb) {
+//         cb(null, appDir + '/uploads');
+//     },
+//     filename(req, file, cb) {
+//         cb(null, `${file.fieldname}-${Date.now()}`)
+//     }
+// });
+
+// const max_upload_size = 50 * 1024 * 1024;
+// const upload = multer({
+//     storage,
+//     limits: {
+//         fileSize: max_upload_size
+//     }
+// });
+
+
+const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/auth')
+
+router.route('/register').post(/* upload.single('file'), */ registerUser);
+router.route('/login').post(loginUser);
+
+router.route('/password/forgot').post(forgotPassword)
+router.route('/password/reset/:token').put(resetPassword)
+
+router.route('/logout').get(logout);
+
+router.route('/me').get(isAuthenticatedUser, getUserProfile)
+router.route('/password/update').put(isAuthenticatedUser, updatePassword)
+router.route('/me/update').put(isAuthenticatedUser, updateProfile)
+
+router.route('/admin/users').get(isAuthenticatedUser, authorizeRoles('admin'), allUsers)
+router.route('/admin/user/:id')
+    .get(isAuthenticatedUser, authorizeRoles('admin'), getUserDetails)
+    .put(isAuthenticatedUser, authorizeRoles('admin'), updateUser)
+    .delete(isAuthenticatedUser, authorizeRoles('admin'), deleteUser)
+
+module.exports = router;

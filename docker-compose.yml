@@ -1,0 +1,29 @@
+services:
+  frontend:
+    build: ./frontend
+    container_name: frontend-eshop
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true  # Helps with file watching on Windows
+    restart: unless-stopped
+    stdin_open: true # keep stdin open for the container to enable interactive features
+    tty: true # allocate a pseudo-TTY for the container to enable interactive features
+  backend:
+    build: .
+    container_name: backend-eshop
+    volumes:
+      - ./backend:/app/backend
+      - ./package.json:/app/package.json
+      - /app/node_modules
+    ports:
+      - "4000:4000"
+    env_file:
+      - ./backend/config/config.env
+    restart: unless-stopped
+    stdin_open: true # keep stdin open for the container to enable interactive features
+    tty: true # allocate a pseudo-TTY for the container to enable interactive features

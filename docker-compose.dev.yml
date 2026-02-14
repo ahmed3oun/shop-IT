@@ -1,0 +1,65 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    container_name: backend-eshop
+    volumes:
+      - ./backend:/app/backend
+      - ./package.json:/app/package.json
+      - /app/node_modules
+    ports:
+      - "4000:4000"
+    env_file:
+      - ./backend/config/config.env
+    restart: unless-stopped
+    stdin_open: true # keep stdin open for the container to enable interactive features
+    tty: true # allocate a pseudo-TTY for the container to enable interactive features
+    depends_on:
+      - mongodb
+    networks:
+      - backend
+      - frontend
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: frontend-eshop
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - frontend_node_modules:/app/node_modules
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    stdin_open: true # keep stdin open for the container to enable interactive features
+    tty: true # allocate a pseudo-TTY for the container to enable interactive features
+    depends_on:
+      - backend
+    networks:
+      - frontend
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongo-eshop
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+      - MONGO_INITDB_DATABASE=eshop-app
+    ports:
+      - 27017:27017
+    volumes:
+      - db:/data/db
+    networks:
+      - backend
+
+volumes:
+  db:
+  frontend_node_modules:
+
+networks:
+  backend:
+  frontend:
