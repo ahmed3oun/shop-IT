@@ -4,7 +4,9 @@ const Category = require('../models/category')
 const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
 const APIFeatures = require('../utils/apiFeatures')
-const cloudinary = require('cloudinary')
+
+const cloudinary = require('../utils/cloudinary');
+const createFile = require('../utils/createFile');
 
 // Create new product   =>   /api/v1/admin/product/new
 exports.newProduct = catchAsyncErrors(async (req, res, next) => {
@@ -19,7 +21,8 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
     let imagesLinks = [];
 
     for (let i = 0; i < images.length; i++) {
-        const result = await cloudinary.v2.uploader.upload(images[i], {
+        const uri = await createFile(images[i], 'product');
+        const result = await cloudinary.uploader.upload(uri, {
             folder: 'products'
         });
 
@@ -32,19 +35,19 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
     req.body.images = imagesLinks
     req.body.user = req.user.id;
 
-    const category = await Category.findById(req.body.category);
-    if(!category) return res.status(400).send('Invalid Category')
+    const category = req.body.category;
+    if (!category) return res.status(400).send('Category is required')
 
     const product = await Product.create({
         name: req.body.name,
         price: req.body.price,
-        rating : req.body.rating,
+        rating: req.body.rating,
         stock: req.body.stock,
-        numOfReviews : req.body.numOfReviews,
+        numOfReviews: req.body.numOfReviews,
         description: req.body.description,
-        user : req.body.user,
-        category : category ,
-        images : req.body.images
+        user: req.body.user,
+        category: category,
+        images: req.body.images
     })
 
     //const product = await Product.create(req.body);
@@ -58,7 +61,6 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
 // Get all products   =>   /api/v1/products?keyword=apple
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
-
     const resPerPage = 4;
     const productsCount = await Product.countDocuments();
 
@@ -72,7 +74,20 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
     apiFeatures.pagination(resPerPage)
     products = await apiFeatures.query;
 
-    let categories = await Category.find()
+    const categories = [
+        'Electronics',
+        'Cameras',
+        'Laptops',
+        'Accessories',
+        'Headphones',
+        'Food',
+        "Books",
+        'Clothes/Shoes',
+        'Beauty/Health',
+        'Sports',
+        'Outdoor',
+        'Home'
+    ]
 
 
     res.status(200).json({
@@ -137,19 +152,23 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
     console.log(req.body.images);
     console.log('//////////////');
     if (images !== undefined) {
+        console.log('images are updating');
+        console.log('images : ', images);
 
         // Deleting images associated with the product
         for (let i = 0; i < product.images.length; i++) {
-            const result = await cloudinary.v2.uploader.destroy(product.images[i].public_id)
+            // const result = await cloudinary.uploader.destroy(product.images[i].public_id)
         }
 
         let imagesLinks = [];
 
         for (let i = 0; i < images.length; i++) {
-            const result = await cloudinary.v2.uploader.upload(images[i], {
+            const uri = await createFile(images[i], 'product');
+            console.log('uri : ', uri);
+            const result = await cloudinary.uploader.upload(uri, {
                 folder: 'products'
             });
-
+            console.log('result : ', result);
             imagesLinks.push({
                 public_id: result.public_id,
                 url: result.secure_url
@@ -157,27 +176,42 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
         }
 
         req.body.images = imagesLinks
+        console.log('req.body.images : ', req.body.images);
+        product = await Product.findByIdAndUpdate(req.params.id, {
+            name: req.body.name,
+            price: req.body.price,
+            description: req.body.description,
+            stock: req.body.stock,
+            seller: req.body.seller,
+            category: req.body.category,
+            images: req.body.images
+        }, {
+            new: true,
+            runValidators: true,
+            useFindAndModify: false
+        });
 
+        res.status(200).json({
+            success: true,
+            product
+        })
+    } else {
+        product = await Product.findByIdAndUpdate(req.params.id, {
+            name: req.body.name,
+            price: req.body.price,
+            description: req.body.description,
+            stock: req.body.stock,
+            seller: req.body.seller,
+            // category : req.body.category
+        }, {
+            new: true,
+            runValidators: true,
+            useFindAndModify: false
+        });
     }
 
 
 
-    product = await Product.findByIdAndUpdate(req.params.id, {
-        name : req.body.name ,
-        price : req.body.price,
-        description : req.body.description,
-        stock : req.body.stock,
-        seller : req.body.seller
-        }, {
-        new: true,
-        runValidators: true,
-        useFindAndModify: false
-    });
-
-    res.status(200).json({
-        success: true,
-        product
-    })
 
 })
 

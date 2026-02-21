@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 const connectDatabase = ()=>{
-    mongoose.connect(process.env.CONNECTION_STRING || 'mongodb+srv://admin:admin@cluster0.ofdrp.mongodb.net/eshop-database?retryWrites=true&w=majority',
+    mongoose.connect(process.env.CONNECTION_STRING,
         { useNewUrlParser: true,useUnifiedTopology: true ,dbName:'eshop-database'}
     ).then((con)=>{
         console.log(`Database is connected succesfully  with host : ${con.connection.host} !!!`);

@@ -1,4 +1,4 @@
-const ErrorHandler = require('../utils/ErrorHandler')
+const ErrorHandler = require('../utils/errorHandler')
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors')
 const Category = require('../models/category')
 const mongoose = require('mongoose')

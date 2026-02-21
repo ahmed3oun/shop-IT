@@ -16,7 +16,7 @@ const Login = ({ history, location }) => {
     const alert = useAlert();
     const dispatch = useDispatch();
 
-    const { isAuthenticated, error, loading} = useSelector(state => state.userReducer) || {};
+    const { isAuthenticated, error, loading } = useSelector(state => state.userReducer) || {};
 
     const redirect = location.search ? location.search.split('=')[1] : '/'
 
@@ -35,7 +35,14 @@ const Login = ({ history, location }) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(login(email, password))
+        // dispatch(login(email, password))
+        dispatch(login(email, password)).then(() => {
+            history.push(redirect)
+            // reload the page to update the state
+            window.location.reload()
+        }).then(() => {
+            alert.success('Login successful')
+        })
     }
 
     return (

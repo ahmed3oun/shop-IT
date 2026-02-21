@@ -27,7 +27,7 @@ connectDatabase();
 // })
 
 const server = app.listen(process.env.PORT, () => {
-    console.log(`Server started on PORT: ${process.env.PORT || 4000 } in ${process.env.NODE_ENV || "mongodb+srv://admin:admin@cluster0.ofdrp.mongodb.net/eshop-database?retryWrites=true&w=majority"} mode.`)
+    console.log(`Server started on PORT: ${process.env.PORT || 4000} in ${process.env.NODE_ENV} mode.`)
 })
 
 // Handle Unhandled Promise rejections

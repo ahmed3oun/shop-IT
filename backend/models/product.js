@@ -33,9 +33,13 @@ const productSchema = new mongoose.Schema({
             },
         }
     ],
+    // category : {
+    //     type: mongoose.Schema.ObjectId,
+    //     ref : 'Category',
+    //     required : true
+    // }
     category : {
-        type: mongoose.Schema.ObjectId,
-        ref : 'Category',
+        type: String,
         required : true
     }
     ,

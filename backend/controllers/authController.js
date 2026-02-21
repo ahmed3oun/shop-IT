@@ -14,11 +14,11 @@ const createFile = require('../utils/createFile');
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 
     if (!req.body.avatar) {
-        // return res.status(500).send('Image not uploaded')
-        return next(new ErrorHandler('Image not uploaded', 500))
+        return res.status(500).send(new ErrorHandler('Image not uploaded', 500))
     }
 
-    const uri = createFile(req.body.avatar, 'avatar');
+    const uri = await createFile(req.body.avatar, 'avatar');
+
     const cloudinary_result = await cloudinary.uploader.upload(uri, {
         folder: 'avatars',
         width: 250,
@@ -211,11 +211,11 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 
 // Logout user   =>   /api/v1/logout
 exports.logout = catchAsyncErrors(async (req, res, next) => {
-    res.cookie('token', null, {
-        expires: new Date(Date.now()),
-        httpOnly: true
-    })
-
+    // res.cookie('token', null, {
+    //     expires: new Date(Date.now()),
+    //     httpOnly: true
+    // })
+    req.session.token = null;
     res.status(200).json({
         success: true,
         message: 'Logged out'

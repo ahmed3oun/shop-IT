@@ -20,34 +20,10 @@ const {
 
 } = require('../controllers/authController');
 
-// const processFile = require('../middlewares/multer');
-// const multer = require('multer');
-// const path = require('path');
-
-
-// global.__basedir = __dirname;
-// const appDir = path.dirname(require.main.filename);
-// const storage = multer.diskStorage({
-//     destination(req, file, cb) {
-//         cb(null, appDir + '/uploads');
-//     },
-//     filename(req, file, cb) {
-//         cb(null, `${file.fieldname}-${Date.now()}`)
-//     }
-// });
-
-// const max_upload_size = 50 * 1024 * 1024;
-// const upload = multer({
-//     storage,
-//     limits: {
-//         fileSize: max_upload_size
-//     }
-// });
-
 
 const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/auth')
 
-router.route('/register').post(/* upload.single('file'), */ registerUser);
+router.route('/register').post(registerUser);
 router.route('/login').post(loginUser);
 
 router.route('/password/forgot').post(forgotPassword)

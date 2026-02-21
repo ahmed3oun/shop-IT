@@ -101,7 +101,7 @@ const Home = ({ match }) => {
                                                     Categories
                                                 </h4>
 
-                                               {/*  <ul className="pl-0">
+                                                {/* <ul className="pl-0">
                                                     {categories.map(category => (
                                                         <li
                                                             style={{

@@ -1,4 +1,5 @@
 import axios from '../api/axios'
+import tokenService from '../api/token-service'
 import {
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
@@ -51,7 +52,9 @@ export const login = (email, password) => async (dispatch) => {
         }
 
         const { data } = await axios.post('/api/v1/login', { email, password }, config)
-
+        const accessToken = data.token
+        const user = { ...data.user, accessToken }
+        tokenService.setUser(user)
         dispatch({
             type: LOGIN_SUCCESS,
             payload: data.user
@@ -226,6 +229,7 @@ export const logout = () => async (dispatch) => {
     try {
 
         await axios.get('/api/v1/logout')
+        tokenService.removeUser()
 
         dispatch({
             type: LOGOUT_SUCCESS,

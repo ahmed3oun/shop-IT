@@ -45,8 +45,13 @@ const Register = ({ history }) => {
         formData.set('email', email);
         formData.set('password', password);
         formData.set('avatar', avatar);
-
-        dispatch(register(formData))
+        // dispatch(register(formData))
+        dispatch(register(formData)).then(() => {
+            history.push('/')
+            window.location.reload()
+        }).then(() => {
+            alert.success('Registration successful')
+        })
     }
 
     const onChange = e => {

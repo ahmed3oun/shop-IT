@@ -6,7 +6,7 @@ const {
        newCategory ,
         deleteCategory,
         updateCategory
-    } = require('../Controllers/categoryController')
+    } = require('../controllers/categoryController')
 const { isAuthenticatedUser , authorizeRoles} = require('../middlewares/auth')
 
 
