@@ -1,12 +1,23 @@
-FROM node:18-alpine
+
+FROM node:16-alpine
+
+# Set working directory
 WORKDIR /app
 
+# Copy package files first (for better layer caching)
 COPY package*.json ./
-RUN npm install --legacy-peer-deps
-# RUN npm install
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application source
 COPY . .
 
-# EXPOSE 4000
-RUN npm run seeder
+# RUN cd frontend && npm install && npm run build
+RUN npm install --prefix frontend && npm run build --prefix frontend*
 
-CMD ["npm", "run", "dev"]
+# ENV NODE_ENV=PRODUCTION
+
+CMD [ "npm", "run", "prod" ]
+
+

@@ -1,0 +1,276 @@
+[{
+  "_id": {
+    "$oid": "6993acce9c94ba33215d1dc9"
+  },
+  "price": 26.99,
+  "ratings": 3.5,
+  "stock": 1,
+  "numOfReviews": 12,
+  "name": "CHARMOUNT Full Motion TV Wall Mount Swivel",
+  "description": "CHARMOUNT TV MOUNT UNIVERSAL DESIGN - Has your TV been received? Tilted TV wall mount is for 26 - 55 TVs weight up to 88lbs 40 kg. Our tilt TV mount has a compatible faceplate that fits VESA 75X75mm (3x3). CHARMOUNT TV MOUNT UNIVERSAL DESIGN - Has your TV been received? Tilted TV wall mount is for 26 - 55 TVs weight up to 88lbs 40 kg. Our tilt TV mount has a compatible faceplate that fits VESA 75X75mm (3x3) CHARMOUNT TV MOUNT UNIVERSAL DESIGN - Has your TV been received? Tilted TV wall mount is for 26 - 55 TVs weight up to 88lbs 40 kg. Our tilt TV mount has a compatible faceplate that fits VESA 75X75mm (3x3).",
+  "images": [
+    {
+      "_id": {
+        "$oid": "6993acce9c94ba33215d1dca"
+      },
+      "public_id": "products/chairmount_nuubea",
+      "url": "https://res.cloudinary.com/bookit/image/upload/v1606231285/products/chairmount_nuubea.jpg"
+    }
+  ],
+  "category": "Electronics",
+  "seller": "Amazon",
+  "reviews": [],
+  "user": {
+    "$oid": "6993a1402c874ca13c526dd4"
+  },
+  "createdAt": {
+    "$date": "2026-02-16T23:48:30.439Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6993acce9c94ba33215d1dcb"
+  },
+  "price": 299,
+  "ratings": 4.5,
+  "stock": 11,
+  "numOfReviews": 112,
+  "name": "Bose QuietComfort 35 II Wireless Bluetooth Headphones",
+  "description": "What happens when you clear away the noisy distractions of the world? Concentration goes to the next level. You get deeper into your music, your work, or whatever you want to focus on. That’s the power of Bose QuietComfort 35 wireless headphones II. Put them on and get closer to what you’re most passionate about. And that’s just the beginning. QuietComfort 35 wireless headphones II are now enabled with Bose AR",
+  "images": [
+    {
+      "_id": {
+        "$oid": "6993acce9c94ba33215d1dcc"
+      },
+      "public_id": "products/headphones_t2afnb",
+      "url": "https://res.cloudinary.com/bookit/image/upload/v1606231281/products/headphones_t2afnb.jpg"
+    }
+  ],
+  "category": "Headphones",
+  "seller": "Amazon",
+  "reviews": [],
+  "user": {
+    "$oid": "6993a1402c874ca13c526dd4"
+  },
+  "createdAt": {
+    "$date": "2026-02-16T23:48:30.440Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6993acce9c94ba33215d1dcd"
+  },
+  "price": 126.99,
+  "ratings": 4.8,
+  "stock": 122,
+  "numOfReviews": 2671,
+  "name": "Apple AirPods with Charging Case (Wired)",
+  "description": "AirPods with Charging Case: More than 24 hours listening time, up to 18 hours talk time; AirPods (single charge): Up to 5 hours listening time, up to 3 hours talk time or 15 minutes in the case equals up to 3 hours listening time or up to 2 hours talk time.",
+  "images": [
+    {
+      "_id": {
+        "$oid": "6993acce9c94ba33215d1dce"
+      },
+      "public_id": "products/airpords_e5cqqr",
+      "url": "https://res.cloudinary.com/bookit/image/upload/v1606231282/products/airpords_e5cqqr.jpg"
+    }
+  ],
+  "category": "Electronics",
+  "seller": "Amazon",
+  "reviews": [],
+  "user": {
+    "$oid": "6993a1402c874ca13c526dd4"
+  },
+  "createdAt": {
+    "$date": "2026-02-16T23:48:30.442Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6993acce9c94ba33215d1dd3"
+  },
+  "price": 949.99,
+  "ratings": 4.9,
+  "stock": 0,
+  "numOfReviews": 56,
+  "name": "Apple MacBook Air (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray",
+  "description": "Stunning 13.3-inch Retina display with True Tone technology, Backlit Magic Keyboard and Touch ID, Tenth-generation, Intel Core i3 processor, Intel Iris Plus Graphics, Fast SSD storage, 8GB of memory, Stereo speakers with wider stereo sound",
+  "images": [
+    {
+      "_id": {
+        "$oid": "6993acce9c94ba33215d1dd4"
+      },
+      "public_id": "products/macbook_o2cj2k",
+      "url": "https://res.cloudinary.com/bookit/image/upload/v1606231282/products/macbook_o2cj2k.jpg"
+    }
+  ],
+  "category": "Laptops",
+  "seller": "Amazon",
+  "reviews": [],
+  "user": {
+    "$oid": "6993a1402c874ca13c526dd4"
+  },
+  "createdAt": {
+    "$date": "2026-02-16T23:48:30.444Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6993acce9c94ba33215d1dc5"
+  },
+  "price": 45.89,
+  "ratings": 4.5,
+  "stock": 50,
+  "numOfReviews": 32,
+  "name": "SanDisk Ultra 128GB SDXC UHS-I Memory Card up to 80MB/s",
+  "description": "Ultra-fast cards (2) to take better pictures and Full HD videos (1) with your compact to mid-range point-and-shoot cameras and camcorders. With SanDisk Ultra SDXC UHS-I cards you’ll benefit from faster downloads, high capacity, and better performance to capture and store 128GB (5) of high quality pictures and Full HD video (1). Take advantage of ultra-fast read speeds of up to 80MB/s (3) to save time moving photos and videos from the card to your computer. From a leader in flash memory storage, SanDisk Ultra SDXC UHS-I cards are compatible with SDHC and SDXC digital devices, and come with a 10-year limited warranty (6).",
+  "images": [
+    {
+      "_id": {
+        "$oid": "6998f22b8e5ceca027b9049c"
+      },
+      "public_id": "products/SanDisk_Ultra_128GB_SDXC_UHS-I_Memory_Card_up_to_80MBs2_itsuea",
+      "url": "https://res.cloudinary.com/dx30mjjas/image/upload/v1771630838/products/SanDisk_Ultra_128GB_SDXC_UHS-I_Memory_Card_up_to_80MBs2_itsuea.png"
+    }
+  ],
+  "category": "Electronics",
+  "seller": "Ebay",
+  "reviews": [],
+  "user": {
+    "$oid": "6993a1402c874ca13c526dd4"
+  },
+  "createdAt": {
+    "$date": "2026-02-16T23:48:30.437Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6993acce9c94ba33215d1dc7"
+  },
+  "price": 315,
+  "ratings": 1.65,
+  "stock": 1,
+  "numOfReviews": 2,
+  "name": "CAN USB FD Adapter (GC-CAN-USB-FD)",
+  "description": "Monitor a CAN network, write a CAN program and communicate with industrial, medical, automotive or other CAN based device. Connect CAN FD and CAN networks to a computer via USB with the CAN USB FD adapter.",
+  "images": null,
+  "category": "Electronics",
+  "seller": "Amazon",
+  "reviews": [],
+  "user": {
+    "$oid": "6993a1402c874ca13c526dd4"
+  },
+  "createdAt": {
+    "$date": "2026-02-16T23:48:30.438Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6993acce9c94ba33215d1dcf"
+  },
+  "price": 27.99,
+  "ratings": 4.1,
+  "stock": 1123,
+  "numOfReviews": 6,
+  "name": "Cable Boom Microphone - Volume Control for Playstation PS4 or Xbox",
+  "description": "DESIGN INFO - 3.5mm male to 2.5mm male audio cable adapter with Upgraded Flexible, Detachable Boom Mic which also enables rotary Volume Control and Mute Switch. SteelFlex Arm for perfect microphone positioning. INPUT COMPATIBILITY - Devices supporting 3.5mm audio output such as gaming PS4 / Xbox One controller, PC, Laptop, iPhone and Android Phone.",
+  "images": [
+    {
+      "_id": {
+        "$oid": "6993acce9c94ba33215d1dd0"
+      },
+      "public_id": "products/eahhtj1bkn1k9gjgd3hn",
+      "url": "https://res.cloudinary.com/bookit/image/upload/v1606233125/products/eahhtj1bkn1k9gjgd3hn.jpg"
+    }
+  ],
+  "category": "Accessories",
+  "seller": "Amazon",
+  "reviews": [],
+  "user": {
+    "$oid": "6993a1402c874ca13c526dd4"
+  },
+  "createdAt": {
+    "$date": "2026-02-16T23:48:30.442Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6993acce9c94ba33215d1dd5"
+  },
+  "price": 2.75,
+  "ratings": 5,
+  "stock": 500,
+  "numOfReviews": 1,
+  "name": "Kauffman Orchards Homegrown McIntosh Apples",
+  "description": "McIntosh is a pretty red/green apple with white flesh Homegrown in Kauffman's orchard in healthy Lancaster County soil McIntosh apples are famous for snacking, pies, salads, and applesauce Protected with soft, high-density foam for safe shipping to your door Not for sale to California, Oregon, or Washington due to state laws governing fresh produce",
+  "images": [
+    {
+      "_id": {
+        "$oid": "6993acce9c94ba33215d1dd6"
+      },
+      "public_id": "products/wmoa49q9e70ze9xtcra2",
+      "url": "https://res.cloudinary.com/bookit/image/upload/v1606293153/products/wmoa49q9e70ze9xtcra2.jpg"
+    },
+    {
+      "_id": {
+        "$oid": "6993acce9c94ba33215d1dd7"
+      },
+      "public_id": "products/i0k1wdwi5hrpmzwxvsds",
+      "url": "https://res.cloudinary.com/bookit/image/upload/v1606293152/products/i0k1wdwi5hrpmzwxvsds.jpg"
+    },
+    {
+      "_id": {
+        "$oid": "6993acce9c94ba33215d1dd8"
+      },
+      "public_id": "products/bshmuo9qisfhz4azvnsd",
+      "url": "https://res.cloudinary.com/bookit/image/upload/v1606293153/products/bshmuo9qisfhz4azvnsd.jpg"
+    }
+  ],
+  "category": "Food",
+  "seller": "Kauffman's Fruit Farm & Market",
+  "reviews": [],
+  "user": {
+    "$oid": "6993a1402c874ca13c526dd4"
+  },
+  "createdAt": {
+    "$date": "2026-02-16T23:48:30.444Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6993acce9c94ba33215d1dd1"
+  },
+  "price": 496.95,
+  "ratings": 4.7,
+  "stock": 131,
+  "numOfReviews": 222,
+  "name": "Nikon D3500 W/ AF-P DX NIKKOR 18-55mm f/3.5-5.6G VR Black",
+  "description": "You don't need to be a photographer to know a great photo when you see one. And you don't need to be a photographer to take a great photo—you just need the D3500. It's as easy to use as a point-and-shoot, but it takes beautiful DSLR photos and videos that get noticed. It feels outstanding in your hands, sturdy and balanced with controls where you want them. It's compact, durable and versatile, ideal for travel. And it works seamlessly with compatible smartphones, making it easier than ever to share your great photos. Even if you've never picked up a DSLR camera, you can take beautiful pictures with D3500.",
+  "images": [
+    {
+      "_id": {
+        "$oid": "6993acce9c94ba33215d1dd2"
+      },
+      "public_id": "products/camera_ridc0i",
+      "url": "https://res.cloudinary.com/bookit/image/upload/v1606231283/products/camera_ridc0i.jpg"
+    }
+  ],
+  "category": "Cameras",
+  "seller": "Amazon",
+  "reviews": [],
+  "user": {
+    "$oid": "6993a1402c874ca13c526dd4"
+  },
+  "createdAt": {
+    "$date": "2026-02-16T23:48:30.443Z"
+  },
+  "__v": 0
+}]

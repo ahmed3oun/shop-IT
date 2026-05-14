@@ -1,0 +1,36 @@
+[{
+  "_id": "698fb8a8ea8698001f3e485b",
+  "role": "user",
+  "name": "dijibin594",
+  "email": "dijibin594@manupay.com",
+  "password": "$2a$10$iVrKoTsVQuXu4vWxE8fdeOOz3tGExXcnKw8q.j9dvSPly/2Tw0s0S",
+  "avatar": {
+    "public_id": "avatars/dqjpwjtd3p2sugqcujw0",
+    "url": "https://res.cloudinary.com/dx30mjjas/image/upload/v1771026599/avatars/dqjpwjtd3p2sugqcujw0.jpg"
+  },
+  "__v": 0
+},
+{
+  "_id": "6993a1402c874ca13c526dd4",
+  "role": "admin",
+  "name": "vopox81605",
+  "email": "vopox81605@esyline.com",
+  "password": "$2a$10$ecF1myAmx4acMZfEwogV8ORAswhr0Y55M7jtMYYm3JXzzxBE1J5US",
+  "avatar": {
+    "public_id": "avatars/t9iynj8zzzljcnq3i9yt",
+    "url": "https://res.cloudinary.com/dx30mjjas/image/upload/v1771282751/avatars/t9iynj8zzzljcnq3i9yt.jpg"
+  },
+  "__v": 0
+},
+{
+  "_id": "6993a8862965eb0049f78fb8",
+  "role": "user",
+  "name": "yafeveh324",
+  "email": "yafeveh324@helesco.com",
+  "password": "$2a$10$2dywcxLyPUrfd2E/qxWrLeHM2ah5THtmEFkhVkhJt5jg9IoUG.nHi",
+  "avatar": {
+    "public_id": "avatars/zvsxhdf4ywuzdbtzhmod",
+    "url": "https://res.cloudinary.com/dx30mjjas/image/upload/v1771284614/avatars/zvsxhdf4ywuzdbtzhmod.jpg"
+  },
+  "__v": 0
+}]

@@ -22,14 +22,20 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
     for (let i = 0; i < images.length; i++) {
         const uri = await createFile(images[i], 'product');
-        const result = await cloudinary.uploader.upload(uri, {
-            folder: 'products'
-        });
+        try {
+            const result = await cloudinary.uploader.upload(uri, {
+                folder: 'products'
+            });
 
-        imagesLinks.push({
-            public_id: result.public_id,
-            url: result.secure_url
-        })
+            imagesLinks.push({
+                public_id: result.public_id,
+                url: result.secure_url
+            })
+        } catch (error) {
+            console.error('Error uploading image to Cloudinary:', error);
+            return next(new ErrorHandler('Failed to upload image', 500));
+        }
+
     }
 
     req.body.images = imagesLinks
@@ -38,19 +44,7 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
     const category = req.body.category;
     if (!category) return res.status(400).send('Category is required')
 
-    const product = await Product.create({
-        name: req.body.name,
-        price: req.body.price,
-        rating: req.body.rating,
-        stock: req.body.stock,
-        numOfReviews: req.body.numOfReviews,
-        description: req.body.description,
-        user: req.body.user,
-        category: category,
-        images: req.body.images
-    })
-
-    //const product = await Product.create(req.body);
+    const product = await Product.create(req.body)
 
     res.status(201).json({
         success: true,
@@ -143,40 +137,36 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
     let images = []
     if (typeof req.body.images === 'string') {
         images.push(req.body.images)
-        console.log('images are getted');
     } else {
         images = req.body.images
     }
-    console.log('//////////////');
-    console.log(req.body);
-    console.log(req.body.images);
-    console.log('//////////////');
-    if (images !== undefined) {
-        console.log('images are updating');
-        console.log('images : ', images);
 
-        // Deleting images associated with the product
-        for (let i = 0; i < product.images.length; i++) {
-            // const result = await cloudinary.uploader.destroy(product.images[i].public_id)
-        }
+    if (images !== undefined) {
 
         let imagesLinks = [];
 
         for (let i = 0; i < images.length; i++) {
             const uri = await createFile(images[i], 'product');
-            console.log('uri : ', uri);
-            const result = await cloudinary.uploader.upload(uri, {
-                folder: 'products'
-            });
-            console.log('result : ', result);
-            imagesLinks.push({
-                public_id: result.public_id,
-                url: result.secure_url
-            })
+            try {
+                const result = await cloudinary.uploader.upload(uri, {
+                    folder: 'products'
+                });
+                imagesLinks.push({
+                    public_id: result.public_id,
+                    url: result.secure_url
+                })
+            } catch (error) {
+                console.error('Error uploading image to Cloudinary:', error);
+                return next(new ErrorHandler('Failed to upload image', 500));
+            }
+        }
+        // Deleting images associated with the product
+        for (let i = 0; i < product.images.length; i++) {
+            const result = await cloudinary.uploader.destroy(product.images[i].public_id)
         }
 
+
         req.body.images = imagesLinks
-        console.log('req.body.images : ', req.body.images);
         product = await Product.findByIdAndUpdate(req.params.id, {
             name: req.body.name,
             price: req.body.price,
@@ -202,16 +192,18 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
             description: req.body.description,
             stock: req.body.stock,
             seller: req.body.seller,
-            // category : req.body.category
+            category: req.body.category
         }, {
             new: true,
             runValidators: true,
             useFindAndModify: false
         });
+
+        res.status(200).json({
+            success: true,
+            product
+        })
     }
-
-
-
 
 })
 

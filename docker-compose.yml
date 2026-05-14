@@ -1,29 +1,55 @@
+version: '3.8'
 services:
-  frontend:
-    build: ./frontend
-    container_name: frontend-eshop
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-      - WATCHPACK_POLLING=true  # Helps with file watching on Windows
-    restart: unless-stopped
-    stdin_open: true # keep stdin open for the container to enable interactive features
-    tty: true # allocate a pseudo-TTY for the container to enable interactive features
-  backend:
-    build: .
-    container_name: backend-eshop
-    volumes:
-      - ./backend:/app/backend
-      - ./package.json:/app/package.json
-      - /app/node_modules
+  shopit:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: shop-it
     ports:
       - "4000:4000"
     env_file:
       - ./backend/config/config.env
     restart: unless-stopped
+    depends_on:
+      - mongodb
     stdin_open: true # keep stdin open for the container to enable interactive features
     tty: true # allocate a pseudo-TTY for the container to enable interactive features
+    networks:
+      - app
+
+  shopit-seed:
+    build:
+      context: ./
+      dockerfile: Dockerfile.seed
+    container_name: shop-it-seed
+    env_file:
+      - ./backend/config/config.env
+    restart: unless-stopped
+    depends_on:
+      - shopit
+      - mongodb
+    stdin_open: true # keep stdin open for the container to enable interactive features
+    tty: true # allocate a pseudo-TTY for the container to enable interactive features
+    networks:
+      - app
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongo-eshop
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+      - MONGO_INITDB_DATABASE=eshop-database
+    ports:
+      - 27017:27017
+    # volumes:
+    #   - db:/data/db
+    networks:
+      - app
+
+# volumes:
+#   db:
+
+networks:
+  app:

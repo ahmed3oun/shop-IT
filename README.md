@@ -1,9 +1,39 @@
-Development Docker instructions
+# ShopIT E-commerce Project
+
+> Complete E-commerce site built with Node.js, React, Redux, Express, MongoDB
+
+### Env Variables
+
+Add your config variables values in the config.env file in backend/config folder as shown in the course.
+
+### Install Dependencies (Frontend)
+
+```
+cd frontend
+npm i
+```
+
+### Install Dependencies (Backend)
+
+```
+npm i
+```
+
+### Seed Database
+
+Use the following commeand to put some dummy products in that database.
+Run it in the root folder.
+
+```
+npm run seeder
+```
+
+
 
 - Build and start containers (first run will install dependencies):
 
 ```bash
-docker-compose -f docker-compose.dev.yml up --build
+docker-compose -f docker-compose.yml up --build
 ```
 
 - Backend dev server will be available at: http://localhost:4000
