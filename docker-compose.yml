@@ -24,7 +24,6 @@ services:
     container_name: shop-it-seed
     env_file:
       - ./backend/config/config.env
-    restart: unless-stopped
     depends_on:
       - shopit
       - mongodb

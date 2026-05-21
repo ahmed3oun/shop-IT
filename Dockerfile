@@ -13,10 +13,7 @@ RUN npm install
 # Copy the rest of the application source
 COPY . .
 
-# RUN cd frontend && npm install && npm run build
-RUN npm install --prefix frontend && npm run build --prefix frontend*
-
-# ENV NODE_ENV=PRODUCTION
+RUN cd frontend && npm install --legacy-peer-deps && npm run build
 
 CMD [ "npm", "run", "prod" ]
 

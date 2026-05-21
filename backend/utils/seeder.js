@@ -22,7 +22,7 @@ const seedProducts = async () => {
 
     } catch (error) {
         console.log(error.message);
-        process.exit();
+        process.exit(1);
     }
 }
 
@@ -40,9 +40,9 @@ const seedUsers = async () => {
 
     } catch (error) {
         console.log(error.message);
-        process.exit();
+        process.exit(1);
     }
 }
 seedUsers()
     .then(() => seedProducts())
-    .finally(() => process.exit());
+    .finally(() => process.exit(0));
